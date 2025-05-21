@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #c9d1d9;
+        }
+
+        .container {
+            width: 350px;
+            height: 500px;
+            perspective: 1200px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        #signup:checked ~ .card {
+            transform: rotateY(180deg);
+        }
+
+        .form {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: linear-gradient(145deg, #161b22, #0d1117);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            border: 2px solid #f1c40f;
+        }
+
+        .form h2 {
+            margin-bottom: 35px;
+            font-size: 24px;
+            color: #f1c40f;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 2px solid #f1c40f;
+            border-radius: 8px;
+            background-color: #21262d;
+            color: #c9d1d9;
+            font-size: 14px;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f1c40f;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .form button:hover {
+            background-color: #e1b30f;
+            transform: scale(1.05);
+        }
+
+        .form.signup {
+            transform: rotateY(180deg);
+        }
+
+        .toggle-links {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .toggle-links label {
+            color: #f1c40f;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .form input::placeholder {
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="radio" id="login" name="toggle" checked>
+        <input type="radio" id="signup" name="toggle">
+
+        <div class="card">
+            <div class="form login">
+                <h2>Login</h2>
+                <input type="text" placeholder="Enter your username">
+                <input type="password" placeholder="Enter your password">
+                <button>Login</button>
+                <div class="toggle-links">
+                    <label for="signup">Don't have an account? <u>Sign up</u></label>
+                </div>
+            </div>
+            <div class="form signup">
+                <h2>Sign Up</h2>
+                <input type="text" placeholder="Choose a username">
+                <input type="email" placeholder="Enter your email">
+                <input type="password" placeholder="Create a password">
+                <button>Sign Up</button>
+                <div class="toggle-links">
+                    <label for="login">Already have an account? <u>Login</u></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
